@@ -26,6 +26,7 @@ requirements:
 - matplotlib
 
 Download [training data][1] and Extract to DataSet folder
+
 Download [pretrain model][2] and Extract to DataSet folder
 
 ## test your own image
