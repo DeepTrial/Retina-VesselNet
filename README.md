@@ -30,11 +30,11 @@ requirements:
 
 please dowload the following files(including DRIVE database) if u want to train the model by yourself:
 
-Download [training data][1] and Extract to DataSet folder
+- Download [training data][1] and Extract to DataSet folder
 
 the pretrained model is below:
 
-Download [pretrain model][2] and Extract to DataSet folder
+- Download [pretrain model][2] and Extract to DataSet folder
 
 
 ## Test your own image
