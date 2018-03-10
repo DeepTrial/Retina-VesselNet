@@ -29,14 +29,16 @@ requirements:
 - matplotlib
 
 please dowload the following files(including DRIVE database) if u want to train the model by yourself:
+
 Download [training data][1] and Extract to DataSet folder
 
 the pretrained model is below:
+
 Download [pretrain model][2] and Extract to DataSet folder
 
 
 ## Test your own image
-if u want to test your own image,put ur image to TestFolder/origin,and change the img_type of predict settings in **configurations.txt**,run xPredict.py to get your result.The result is in TestFolder/result
+if u want to test your own image,put ur image to **TestFolder/origin**,and change the img_type of predict settings in **configurations.txt**,run xPredict.py to get your result.The result is in **TestFolder/result**
 
 
 [1]: https://drive.google.com/open?id=1fDlnqeuGlX93lUkXEEWcImSFoIufLhRe
