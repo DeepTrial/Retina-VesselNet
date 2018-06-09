@@ -1,15 +1,3 @@
-#### you can find here
-
-- [VesselNet](#VesselNet!)
-    - [About Model](#About-Model)
-    - [Mertic](#Mertic)
-    - [Project Structure](#Project-Structure)
-        - [First to run](#First-to-run)
-        - [Pretrained Model](#Pretrained-Model)
-        - [Test your own image](#Test-your-own-image)
-    - [Future Work](#Future-Work)
-        
-
 # VesselNet
 A DenseBlock-Unet for Retinal Blood Vessel Segmentation
 
@@ -18,14 +6,15 @@ A DenseBlock-Unet for Retinal Blood Vessel Segmentation
 ![TestResult](https://i.imgur.com/pPMANyZ.jpg)
 
 
+
 ## About Model
 This model is inspired by DenseNet and [@orobix/retina-unet][5],I modify the Conv2d block to DenseBlock and finally I get better result.The DenseBlock struct is shown below.This struct maximisely use the extracted feature.If u want further information,please read the [DenseNet Paper][3] and [code][4]
 
-![DenseBlock](https://i.imgur.com/E2fDtOm.png)
+![DenseBlock](DenseBlock.png)
 
 
-## Result Evaluation
-Trian With 40 images of DRIVE dataset and DenseBlock-Unet model.
+## Mertic
+Trian With 40 images of DRIVE dataset and DenseBlock-Unet model
 Results on DRIVE database:
 
 |Methods|AUC ROC on DRIVE|
@@ -49,10 +38,6 @@ Datatset and pretrained model can be found [here][2].For Chinese, you can downlo
 ### Test your own image
 if u want to test your own image,put ur image to **(VesselNet)/test/origin**,and change the img_type of predict settings in **configs/segmention_config.json**,run main_test.py to get your result.The result is in **(VesselNet)/test/result**
 
-## Future Work
-First of all,I choose 48x48pix patches to train the model.The patch size means that model can't be too deep.So in future,I want to test 128X128pix patches and 96x96 patches.
-
-Second,Attention-based Unet and DeepLab-v3+ are also worth to try.
 
 [1]: https://github.com/DeepTrial/DL_Segmention_Template
 [2]: https://drive.google.com/open?id=1MD79lK0YcsCzpj72XpVZZ6XGz2C0O7AH
@@ -60,6 +45,3 @@ Second,Attention-based Unet and DeepLab-v3+ are also worth to try.
 [4]: https://github.com/liuzhuang13/DenseNet 
 [5]: https://github.com/orobix/retina-unet
 [6]: https://pan.baidu.com/s/1oIIZ2CuIGUswZXJ3o_qplA
-
-
-

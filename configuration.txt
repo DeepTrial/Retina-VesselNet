@@ -1,0 +1,55 @@
+[data paths]
+original_imgs_train = ./DataSet/image/training/images/
+groundtruth_imgs_train = ./DataSet/image/training/1st_manual/
+original_imgs_test = ./DataSet/image/test/images/
+groundtruth_imgs_test = ./DataSet/image/test/1st_manual/
+original_imgs_metric = ./DataSet/image/metric/images/
+groundtruth_imgs_metric = ./DataSet/image/metric/1st_manual/
+bordermask_imgs_metric = ./DataSet/image/metric/mask/
+dataset_path = ./DataSet/hdf5/
+path_local = ./DataSet/hdf5/
+train_imgs_original = dataset_imgs_train.hdf5
+train_groundtruth = dataset_groundTruth_train.hdf5
+train_border_masks = dataset_borderMasks_train.hdf5
+test_imgs_original = dataset_imgs_test.hdf5
+test_groundtruth = dataset_groundTruth_test.hdf5
+test_border_masks = dataset_borderMasks_test.hdf5
+metric_imgs_original = metric_imgs_train.hdf5
+metric_groundtruth = metric_groundTruth_train.hdf5
+metric_border_masks = metric_borderMasks_train.hdf5
+
+[experiment name]
+name = DeepRetina
+
+[data attributes]
+patch_height = 48
+patch_width = 48
+num_lesion_class = 1
+tensorflow = 0
+total_data = 60
+total_data_train = 40
+total_data_test = 20
+height = 584
+width = 565
+
+[training settings]
+full_images_to_train = 40
+n_subimgs = 1024
+inside_fov = False
+n_epochs = 20
+batch_size = 32
+nohup = False
+
+[testing settings]
+best_last = best
+full_images_to_test = 20
+full_images_to_metric = 20
+n_group_visual = 1
+average_mode = true
+stride_height = 5
+stride_width = 5
+nohup = False
+
+[predict settings]
+img_type = tif
+
