@@ -1,49 +1,65 @@
+#### you can find here
+
+- [VesselNet!](#VesselNet!)
+    - [About Model](#About-Model)
+    - [Mertic](#Mertic)
+    - [Project Structure](#Project-Structure)
+        - [First to run](#First-to-run)
+        - [Pretrained Model](#Pretrained-Model)
+        - [Test your own image](#Test-your-own-image)
+    - [Future Work](#Future-Work)
+        
+
 # VesselNet
 A DenseBlock-Unet for Retinal Blood Vessel Segmentation
 
-![TestResult](/DataSet/test.jpg)
+**Notice： This Project structure updated on 9th June！**
 
-## Model Instruction
+![TestResult](https://i.imgur.com/pPMANyZ.jpg)
+
+
+## About Model
 This model is inspired by DenseNet and [@orobix/retina-unet][5],I modify the Conv2d block to DenseBlock and finally I get better result.The DenseBlock struct is shown below.This struct maximisely use the extracted feature.If u want further information,please read the [DenseNet Paper][3] and [code][4]
 
-![DenseBlock](DenseBlock.png)
+![DenseBlock](https://i.imgur.com/E2fDtOm.png)
 
 
-## Mertic
-With data argumentation(only randomly rotate) and DenseBlock-Unet
+## Result Evaluation
+Trian With 40 images of DRIVE dataset and DenseBlock-Unet model.
 Results on DRIVE database:
 
 |Methods|AUC ROC on DRIVE|
 |-:|-:|
 |Liskowski|0.9790|
 |Retina-Unet|0.9790|
-|VesselNet|0.9793|
+|VesselNet|0.9841|
 
-## Setup Model
-to run this model,u need to setup basic python deep learning environment,please ensure that u have already installed CUDA and CUDNN.Python(i recommend to install anaconda) package and version requiremented:
-requirements:
-- python3+
-- keras2.0+
-- theano0.9+
-- opencv3+
-- matplotlib
+## Project Structure
+The structure is based on my own [DL_Segmention_Template][1].Difference between this project and the template is that we have metric module in dir: perception/metric/. To get more Information about the structure please see readme in [DL_Segmention_Template][1].
 
-please dowload the following files(including DRIVE database) if u want to train the model by yourself:
+You can find model parameter in **configs/segmention_config.json**.
 
-- Download [training data][1] and Extract to DataSet folder
+### First to run
+**please run main_trainer.py first time**,then you will get data_route in experiment dir.Put your data in there, now you can run main_trainer.py again to train a model. 
 
-the pretrained model is below:
+### Pretrained Model
+the model is trained with *DRIVE dataset* on my own desktop(intel i7-7700hq,24g,gtx1050 2g) within 30 minutes.
+Datatset and pretrained model can be found [here][2].For Chinese, you can download [here][6].
 
-- Download [pretrain model][2] and Extract to DataSet folder
+### Test your own image
+if u want to test your own image,put ur image to **(VesselNet)/test/origin**,and change the img_type of predict settings in **configs/segmention_config.json**,run main_test.py to get your result.The result is in **(VesselNet)/test/result**
 
+## Future Work
+First of all,I choose 48x48pix patches to train the model.The patch size means that model can't be too deep.So in future,I want to test 128X128pix patches and 96x96 patches.
 
-## Test your own image
-if u want to test your own image,put ur image to **TestFolder/origin**,and change the img_type of predict settings in **configurations.txt**,run xPredict.py to get your result.The result is in **TestFolder/result**
+Second,Attention-based Unet and DeepLab-v3+ are also worth to try.
 
-
-[1]: https://drive.google.com/open?id=1fDlnqeuGlX93lUkXEEWcImSFoIufLhRe
-[2]: https://drive.google.com/open?id=1VVQveyxHIB4OT74Lk4M86GLddSupIZKO
+[1]: https://github.com/DeepTrial/DL_Segmention_Template
+[2]: https://drive.google.com/open?id=1MD79lK0YcsCzpj72XpVZZ6XGz2C0O7AH
 [3]: https://arxiv.org/pdf/1608.06993.pdf
 [4]: https://github.com/liuzhuang13/DenseNet 
 [5]: https://github.com/orobix/retina-unet
-[4]: https://github.com/liuzhuang13/DenseNet 
+[6]: https://pan.baidu.com/s/1oIIZ2CuIGUswZXJ3o_qplA
+
+
+
