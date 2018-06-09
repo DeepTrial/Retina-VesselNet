@@ -15,6 +15,8 @@ A DenseBlock-Unet for Retinal Blood Vessel Segmentation
 
 **Notice： This Project structure updated on 9th June！**
 
+You can find old version in *branch old*
+
 ![TestResult](https://i.imgur.com/pPMANyZ.jpg)
 
 
