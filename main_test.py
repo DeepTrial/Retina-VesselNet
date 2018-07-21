@@ -9,7 +9,7 @@ from perception.metric.segmention_metric import *
 from configs.utils.config_utils import process_config
 
 
-repredict=True
+repredict=False
 
 def main_test():
     print('[INFO] Reading Configs...')
@@ -30,7 +30,7 @@ def main_test():
     print('[INFO] Metric results...')
     gtlist=fileList(config.test_gt_path,'*'+config.test_gt_datatype)
     problist=fileList(config.test_result_path,'*.bmp')
-    modelName=['Attention-Unet']
+    modelName=['DenseNet-Unet']
     drawCurve(gtlist,[problist],modelName,'DRIVE',config.checkpoint)
 
     print('[INFO] Fininshed...')

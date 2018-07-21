@@ -7,7 +7,7 @@ Created by Resnick Xing on 2018/5/10
 import os
 from experiments.data_loaders.standard_loader import DataLoader
 # from infers.simple_mnist_infer import SimpleMnistInfer
-from perception.models.segmention_model import SegmentionModel
+from perception.models.dense_unet import  SegmentionModel
 from perception.trainers.segmention_trainer import SegmentionTrainer
 from configs.utils.config_utils import process_config
 import numpy as np

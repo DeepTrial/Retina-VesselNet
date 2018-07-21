@@ -33,7 +33,7 @@ class SegmentionModel(ModelBase):
 		act = Activation('relu')(bn)
 		conv1 = Conv2D(outdim, (3, 3), activation=None, padding='same')(act)
 
-		if inputshape[1] != outdim:
+		if inputshape[3] != outdim:
 			shortcut = Conv2D(outdim, (1, 1), padding='same')(inputs)
 		else:
 			shortcut = inputs
@@ -66,17 +66,17 @@ class SegmentionModel(ModelBase):
 		conv4 = self.DenseBlock(pool3, 64)  # 12
 
 		up1 = Conv2DTranspose(64, (3, 3), strides=2, activation='relu', padding='same')(conv4)
-		up1 = concatenate([up1, conv3], axis=1)
+		up1 = concatenate([up1, conv3], axis=3)
 
 		conv5 = self.DenseBlock(up1, 64)
 
 		up2 = Conv2DTranspose(64, (3, 3), strides=2, activation='relu', padding='same')(conv5)
-		up2 = concatenate([up2, conv2], axis=1)
+		up2 = concatenate([up2, conv2], axis=3)
 
 		conv6 = self.DenseBlock(up2, 64)
 
-		up3 = Conv2DTranspose(64, (3, 3), strides=2, activation='relu', padding='same')(conv6)
-		up3 = concatenate([up3, conv1], axis=1)
+		up3 = Conv2DTranspose(32, (3, 3), strides=2, activation='relu', padding='same')(conv6)
+		up3 = concatenate([up3, conv1], axis=3)
 
 		conv7 = self.DenseBlock(up3, 32)
 
@@ -84,12 +84,14 @@ class SegmentionModel(ModelBase):
 		# conv6 = normalization.BatchNormalization(epsilon=1e-06, mode=1, axis=-1, momentum=0.9, weights=None, beta_init='zero', gamma_init='one')(conv6)
 
 		# for tensorflow
-		# conv6 = core.Reshape((patch_height*patch_width,num_lesion_class+1))(conv6)
+		conv8 = core.Reshape((self.patch_height*self.patch_width,self.num_seg_class + 1))(conv8)
 		# for theano
-		conv8 = core.Reshape(((self.num_seg_class + 1), self.patch_height * self.patch_width))(conv8)
-		conv8 = core.Permute((2, 1))(conv8)
+		#conv8 = core.Reshape(((self.num_seg_class + 1), self.patch_height * self.patch_width))(conv8)
+		#conv8 = core.Permute((2, 1))(conv8)
 		############
 		act = Activation('softmax')(conv8)
 
 		model = Model(inputs=inputs, outputs=act)
-		self.model=model
+		model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
+		plot_model(model, to_file=os.path.join(self.config.checkpoint, "model.png"), show_shapes=True)
+		self.model = model

@@ -1,9 +1,9 @@
 {
   "exp_name": "VesselNet",
   "epochs": 20,
-  "batch_size": 15,
-  "patch_height": 48,
-  "patch_width": 48,
+  "batch_size": 25,
+  "patch_height": 96,
+  "patch_width": 96,
   "subsample": 512,
   "total_train": 40,
   "total_val": 20,
