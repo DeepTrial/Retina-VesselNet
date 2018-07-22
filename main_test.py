@@ -9,7 +9,7 @@ from perception.metric.segmention_metric import *
 from configs.utils.config_utils import process_config
 
 
-repredict=False
+repredict=True
 
 def main_test():
     print('[INFO] Reading Configs...')

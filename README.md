@@ -57,11 +57,11 @@ First of all,I choose 48x48pix patches to train the model.The patch size means t
 Second,Attention-based Unet and DeepLab-v3+ are also worth to try.
 
 [1]: https://github.com/DeepTrial/DL_Segmention_Template
-[2]: https://drive.google.com/open?id=1MD79lK0YcsCzpj72XpVZZ6XGz2C0O7AH
+[2]: https://drive.google.com/file/d/1RALItn7a-XIe-ebsghk6HL-T0btJI9w7/view?usp=sharing
 [3]: https://arxiv.org/pdf/1608.06993.pdf
 [4]: https://github.com/liuzhuang13/DenseNet 
 [5]: https://github.com/orobix/retina-unet
-[6]: https://pan.baidu.com/s/1oIIZ2CuIGUswZXJ3o_qplA
+[6]: https://pan.baidu.com/s/1fH8w_G87qv711oBnciI5qw
 
 
 
