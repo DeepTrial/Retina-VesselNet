@@ -205,6 +205,7 @@ def drawCurve(gtlist,problist,modelName,dataset,savepath='./'):
 	# calculate param
 	for index in range(modelNum):
 		process.reload(gtlist,problist[index])
+		# if filenames are not one-to-one match between gtlist and problist,the curve seems to be not right.
 		(FPR, TPR, AUC), (Precision, Recall, MAP),IoU = process.statistics()
 		painter_roc.reload(FPR, TPR, AUC,dataset, modelName[index])
 		painter_pr.reload(Precision, Recall, MAP, dataset, modelName[index])

@@ -34,10 +34,15 @@ class DataLoader(DataLoaderBase):
 		:param datatype:  图片格式(dataType for origin and gt)
 		:return:  张量类型（Tensor） imgs， groundTruth
 		"""
-		orgList = glob.glob(origin_path+"*."+datatype) #文件名列表 filename list
-		gtList = glob.glob(groundtruth_path+"*."+datatype)
+		orgList = glob.glob(origin_path+"*."+datatype) #文件名列表 original image filename list
+		gtList = glob.glob(groundtruth_path+"*."+datatype) #groundtruth 文件名列表 groundtruth image filename list
+		#有部分开发者反应，orglist与gtlist的文件名顺序在上一步骤后并不一一对应，所以添加下面的代码保证文件名的对应
+		# Some Researchers find that filenames are not one-to-one match between orglist & gtlist,so I add the following part
+		for num in range(len(orgList)):  #应根据训练数据的实际情况修改代码 please change the code according to your dataset filenames
+			loc=orgList[num].rfind('/')
+			gtList[num]=groundtruth_path+orgList[num][loc+1:loc+4]+'manual1.tif'
 
-		assert (len(orgList) == len(gtList)) # 原始图片和GT图片数量应当一致
+		assert (len(orgList) == len(gtList)) # 原始图片和GT图片数量应当一致 To make sure they have same length
 
 		imgs = np.empty((len(orgList), self.height, self.width, 1))
 		groundTruth = np.empty((len(gtList), self.num_seg_class, self.height, self.width))
@@ -45,7 +50,7 @@ class DataLoader(DataLoaderBase):
 		for index in range(len(orgList)):
 			orgPath=orgList[index]
 			orgImg=plt.imread(orgPath)
-			imgs[index,:,:,0]=np.asarray(orgImg[:,:,1]*0.75+orgImg[:,:,0]*0.25)
+			imgs[index,:,:,0]=np.asarray(orgImg[:,:,1]*0.75+orgImg[:,:,0]*0.25)   #血管在RGB图片的G通道非常明显，在B通道最不明显
 
 			for no_seg in range(self.num_seg_class):
 				gtPath=gtList[index]
