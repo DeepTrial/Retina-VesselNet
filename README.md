@@ -7,6 +7,7 @@
         - [First to run](#first-to-run)
         - [Pretrained Model](#pretrained-model)
         - [Test your own image](#test-your-own-image)
+    - [Reference](#reference)
     - [Future Work](#future-work)
         
 
@@ -51,6 +52,13 @@ Datatset and pretrained model can be found [here][2].For Chinese, you can downlo
 ### Test your own image
 if u want to test your own image,put ur image to **(VesselNet)/test/origin**,and change the img_type of predict settings in **configs/segmention_config.json**,run main_test.py to get your result.The result is in **(VesselNet)/test/result**
 
+## Reference
+This project is based on the following 2 papers:
+
+[U-Net: Convolutional Networks for Biomedical Image Segmentation](8)
+
+[Densely Connected Convolutional Networks](7)
+
 ## Future Work
 First of all,I choose 48x48pix patches to train the model.The patch size means that model can't be too deep.So in future,I want to test 128X128pix patches and 96x96 patches.
 
@@ -62,6 +70,8 @@ Second,Attention-based Unet and DeepLab-v3+ are also worth to try.
 [4]: https://github.com/liuzhuang13/DenseNet 
 [5]: https://github.com/orobix/retina-unet
 [6]: https://pan.baidu.com/s/1fH8w_G87qv711oBnciI5qw
+[7]: https://arxiv.org/pdf/1608.06993.pdf
+[8]: https://arxiv.org/pdf/1505.04597.pdf
 
 
 
