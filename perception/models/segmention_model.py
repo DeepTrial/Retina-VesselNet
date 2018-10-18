@@ -30,7 +30,7 @@ class SegmentionModel(ModelBase):
 		conv1 = Conv2D(32, (3, 3), padding='same')(inputs)  # 'valid'
 		conv1 = LeakyReLU(alpha=0.3)(conv1)
 		conv1 = Dropout(0.2)(conv1)
-		conv1 = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,beta_initializer='RandomNormal', gamma_initializer='one')(conv1)
+		conv1 = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,beta_initializer='RandomNormal', gamma_initializer='one')(conv1)
 		conv1 = Conv2D(32, (3, 3), dilation_rate=2, padding='same')(conv1)
 		conv1 = LeakyReLU(alpha=0.3)(conv1)
 		conv1 = Conv2D(32, (3, 3), dilation_rate=4, padding='same')(conv1)
@@ -39,7 +39,7 @@ class SegmentionModel(ModelBase):
 
 		# pool1 = normalization.BatchNormalization(epsilon=1e-06, mode=1, axis=-1, momentum=0.9, weights=None, beta_init='zero', gamma_init='one')(pool1)
 		conv2 = Conv2D(64, (3, 3), padding='same')(pool1)  # ,activation='relu', padding='same')(pool1)
-		conv2 = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,
+		conv2 = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,
 		                                         beta_initializer='RandomNormal', gamma_initializer='one')(conv2)
 		conv2 = LeakyReLU(alpha=0.3)(conv2)
 		conv2 = Dropout(0.2)(conv2)
@@ -53,18 +53,18 @@ class SegmentionModel(ModelBase):
 		# crop = Cropping2D(cropping=((int(3 * patch_height / 8), int(3 * patch_height / 8)), (int(3 * patch_width / 8), int(3 * patch_width / 8))))(conv1)
 		# conv3 = concatenate([crop,pool2], axis=1)
 		conv3 = Conv2D(128, (3, 3), padding='same')(pool2)  # , activation='relu', padding='same')(conv3)
-		conv3 = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,
+		conv3 = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,
 		                                         beta_initializer='RandomNormal', gamma_initializer='one')(conv3)
 		conv3 = LeakyReLU(alpha=0.3)(conv3)
 		conv3 = Dropout(0.2)(conv3)
 		conv3 = Conv2D(128, (3, 3), dilation_rate=2, padding='same')(
 			conv3)  # ,W_regularizer=l2(0.01), b_regularizer=l2(0.01))(conv3)
-		conv3 = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,
+		conv3 = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,
 		                                         beta_initializer='RandomNormal', gamma_initializer='one')(conv3)
 		conv3 = LeakyReLU(alpha=0.3)(conv3)
 
 		conv3 = Conv2D(128, (3, 3), dilation_rate=4, padding='same')(conv3)
-		conv3 = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,
+		conv3 = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,
 		                                         beta_initializer='RandomNormal', gamma_initializer='one')(conv3)
 		conv3 = LeakyReLU(alpha=0.3)(conv3)
 

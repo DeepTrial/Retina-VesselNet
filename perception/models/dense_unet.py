@@ -28,7 +28,7 @@ class SegmentionModel(ModelBase):
 	def DenseBlock(self,inputs, outdim):
 
 		inputshape = K.int_shape(inputs)
-		bn = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,
+		bn = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,
 		                                      beta_initializer='zero', gamma_initializer='one')(inputs)
 		act = Activation('relu')(bn)
 		conv1 = Conv2D(outdim, (3, 3), activation=None, padding='same')(act)
@@ -39,7 +39,7 @@ class SegmentionModel(ModelBase):
 			shortcut = inputs
 		result1 = add([conv1, shortcut])
 
-		bn = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,
+		bn = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,
 		                                      beta_initializer='zero', gamma_initializer='one')(result1)
 		act = Activation('relu')(bn)
 		conv2 = Conv2D(outdim, (3, 3), activation=None, padding='same')(act)
@@ -50,7 +50,7 @@ class SegmentionModel(ModelBase):
 	def build_model(self):
 		inputs = Input((self.patch_height, self.patch_width, 1))
 		conv1 = Conv2D(32, (1, 1), activation=None, padding='same')(inputs)
-		conv1 = normalization.BatchNormalization(epsilon=2e-05, axis=1, momentum=0.9, weights=None,
+		conv1 = normalization.BatchNormalization(epsilon=2e-05, axis=3, momentum=0.9, weights=None,
 		                                         beta_initializer='zero', gamma_initializer='one')(conv1)
 		conv1 = Activation('relu')(conv1)
 
