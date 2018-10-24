@@ -107,8 +107,8 @@ def visualize(image,subplot):
     :param subplot: 行列数[row,col]
     :return: 拼接图
     """
-    row=subplot[0]
-    col=subplot[1]
+    row=int(subplot[0])
+    col=int(subplot[1])
     height,width=image[0].shape[:2]
     result=np.zeros((height*row,width*col,3))
 

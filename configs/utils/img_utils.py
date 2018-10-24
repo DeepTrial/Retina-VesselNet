@@ -104,10 +104,15 @@ def img_process(data,rl=False):
         for index in range(data.shape[1]):
             train_img=np.zeros([data.shape[0],1,data.shape[2],data.shape[3]])
             train_img[:,0,:,:]=data[:,index,:,:]
+            #print("original",np.max(train_img),np.min(train_img))
             train_img = dataset_normalized(train_img)   #归一化
+            #print("normal",np.max(train_img), np.min(train_img))
             train_img = clahe_equalized(train_img)      #限制性直方图归一化
+            #print("clahe",np.max(train_img), np.min(train_img))
             train_img = adjust_gamma(train_img, 1.2)    #gamma校正
+            #print("gamma",np.max(train_img), np.min(train_img))
             train_img = train_img/255.  #reduce to 0-1 range
+            #print("reduce",np.max(train_img), np.min(train_img))
             train_imgs[:,index,:,:]=train_img[:,0,:,:]
 
     else:

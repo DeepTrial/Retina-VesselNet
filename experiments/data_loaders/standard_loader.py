@@ -36,10 +36,13 @@ class DataLoader(DataLoaderBase):
 		"""
 		orgList = glob.glob(origin_path+"*."+datatype) #文件名列表 original image filename list
 		gtList = glob.glob(groundtruth_path+"*."+datatype) #groundtruth 文件名列表 groundtruth image filename list
+
 		#有部分开发者反应，orglist与gtlist的文件名顺序在上一步骤后并不一一对应，所以添加下面的代码保证文件名的对应
 		# Some Researchers find that filenames are not one-to-one match between orglist & gtlist,so I add the following part
-		for num in range(len(orgList)):  #应根据训练数据的实际情况修改代码 please change the code according to your dataset filenames
-			loc=orgList[num].rfind('/')
+		# 应根据训练数据的实际情况修改代码 please change the code according to your dataset filenames
+		for num in range(len(orgList)):
+			loc=orgList[num].rfind('\\')  #此处可能出错，可以交换试验一下句是否可行   if this palce goes wrong,please switch to next line to have a try
+			#loc=orgList[num].rfind('/')
 			gtList[num]=groundtruth_path+orgList[num][loc+1:loc+4]+'manual1.tif'
 
 		assert (len(orgList) == len(gtList)) # 原始图片和GT图片数量应当一致 To make sure they have same length

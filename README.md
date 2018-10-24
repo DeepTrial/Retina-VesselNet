@@ -69,7 +69,7 @@ Second,Attention-based Unet and DeepLab-v3+ are also worth to try.
 [3]: https://arxiv.org/pdf/1608.06993.pdf
 [4]: https://github.com/liuzhuang13/DenseNet 
 [5]: https://github.com/orobix/retina-unet
-[6]: https://pan.baidu.com/s/1fH8w_G87qv711oBnciI5qw
+[6]: https://pan.baidu.com/s/1EnKeNTGimzVRa9QedWjxlg
 [7]: https://arxiv.org/pdf/1608.06993.pdf
 [8]: https://arxiv.org/pdf/1505.04597.pdf
 
