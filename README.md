@@ -3,28 +3,12 @@
 - [2019-6-9] keras-tensorflow branch: https://github.com/DeepTrial/Retina-VesselNet/tree/keras-tensorflow-1.X
 - [2018-5-2] keras-theano branch: https://github.com/DeepTrial/Retina-VesselNet/tree/keras-theano
 
-#### you can find here
-
-- [VesselNet](#vesselnet)
-    - [About Model](#about-model)
-    - [Mertic](#mertic)
-    - [Project Structure](#project-structure)
-        - [First to run](#first-to-run)
-        - [Pretrained Model](#pretrained-model)
-        - [Test your own image](#test-your-own-image)
-    - [Reference](#reference)
-        
 
 # VesselNet
 A Simple U-net model for Retinal Blood Vessel Segmentation with DRIVE dataset
 
 ![TestResult](https://i.imgur.com/pPMANyZ.jpg)
 
-
-## About Model
-This model is inspired by DenseNet and [@orobix/retina-unet][5], I modify the Conv2d block to DenseBlock and finally I get better result. The DenseBlock struct is shown below. This struct maximisely use the extracted feature. If u want further information, please read the [DenseNet Paper][3] and [code][4]
-
-![DenseBlock](https://i.imgur.com/E2fDtOm.png)
 
 
 ## Project Structure
