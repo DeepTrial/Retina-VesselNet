@@ -1,0 +1,33 @@
+{
+  "dataset": {
+    "dataset_path": "/home/ccxing/disk/workbook/Vessel/DRIVE-datasets/",
+    "train_dir":  "training/",
+    "train_image_dir": "images/",
+    "train_mask_dir": "mask/",
+    "train_groundtruth_dir": "1st_manual/",
+    "train_patch_dir": "patch/",
+    "test_dir": "test/",
+    "test_image_dir": "images/",
+    "test_mask_dir": "mask/",
+    "test_groundtruth_dir": "groundtruth/",
+    "test_save_dir": "pred_result/"
+  },
+  "sample": {
+    "patch_size": 48,
+    "patch_num": 1000,
+    "patch_threshold": 30,
+    "train_val_rate": 0.7
+  },
+  "training": {
+    "epoch": 250,
+    "val_time": 2,
+    "init_lr": 0.0003,
+    "batch_size": 64,
+    "checkpoint_dir": "./ckpt/",
+    "log_dir": "./logs/"
+  },
+  "test": {
+    "stride": 5,
+    "threshold": 0.5
+  }
+}

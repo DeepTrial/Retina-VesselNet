@@ -1,4 +1,7 @@
-**[NOTE]** Since this project is full of loopholes, I decide to construct the project and upgrade it to Tensorflow 2.
+**[NOTE]** Since this project has upgraded to Tensorflow 2.3 on **18th March 2021**, you can find old branch from:
+
+- [2019-6-9] keras-tensorflow branch: https://github.com/DeepTrial/Retina-VesselNet/tree/keras-tensorflow-1.X
+- [2018-5-2] keras-theano branch: https://github.com/DeepTrial/Retina-VesselNet/tree/keras-theano
 
 #### you can find here
 
@@ -10,15 +13,10 @@
         - [Pretrained Model](#pretrained-model)
         - [Test your own image](#test-your-own-image)
     - [Reference](#reference)
-    - [Future Work](#future-work)
         
 
 # VesselNet
-A DenseBlock-Unet for Retinal Blood Vessel Segmentation
-
-**Notice：This Project structure updated on 9th June！**
-
-You can find old version in *branch old*
+A Simple U-net model for Retinal Blood Vessel Segmentation with DRIVE dataset
 
 ![TestResult](https://i.imgur.com/pPMANyZ.jpg)
 
@@ -28,16 +26,6 @@ This model is inspired by DenseNet and [@orobix/retina-unet][5], I modify the Co
 
 ![DenseBlock](https://i.imgur.com/E2fDtOm.png)
 
-
-## Result Evaluation
-Tried With 40 images of DRIVE dataset and DenseBlock-Unet model.
-Results on DRIVE database:
-
-|Methods|AUC ROC on DRIVE|
-|-:|-:|
-|Liskowski|0.9790|
-|Retina-Unet|0.9790|
-|VesselNet|0.9841|
 
 ## Project Structure
 The structure is based on my own [DL_Segmention_Template][1]. Difference between this project and the template is that we have metric module in dir: `perception/metric/`. To get more Information about the structure please see readme in [DL_Segmention_Template][1].
@@ -57,14 +45,13 @@ If u want to test your own image, put ur image to **(VesselNet)/test/origin**, a
 ## Reference
 This project is based on the following 2 papers:
 
+
+
 [U-Net: Convolutional Networks for Biomedical Image Segmentation](8)
 
 [Densely Connected Convolutional Networks](7)
 
-## Future Work
-First of all, I choose 48x48pix patches to train the model. The patch size means that model can't be too deep. So in future, I want to test 128X128pix patches and 96x96 patches.
 
-Second, Attention-based Unet and DeepLab-v3+ are also worth to try.
 
 [1]: https://github.com/DeepTrial/DL_Segmention_Template
 [2]: https://drive.google.com/file/d/1RALItn7a-XIe-ebsghk6HL-T0btJI9w7/view?usp=sharing

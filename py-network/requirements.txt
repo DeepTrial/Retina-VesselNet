@@ -1,0 +1,8 @@
+tensorflow-gpu==2.3
+tqdm
+matplotlib
+opencv-python
+tf-nightly
+scikit-learn
+onnxruntime
+tf2onnx
