@@ -1,4 +1,4 @@
-tensorflow-gpu==2.3
+tensorflow-gpu==2.4.0
 tqdm
 matplotlib
 opencv-python
