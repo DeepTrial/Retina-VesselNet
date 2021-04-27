@@ -14,7 +14,7 @@ A Simple U-net model for Retinal Blood Vessel Segmentation with DRIVE dataset
 We provide 2 version of projects: [jupyter notebook][1] and [`.py file`][3]. The implementation of these two versions is completely consistent. Choose one version and enjoy it!
 
 ### First to run
-For the first time, I recommand to use [jupyter notebook][1], it will give you an intuitive presentation. Different notebooks are made for different purpose:
+For the first time, I recommand to use the version of [jupyter notebook][1], it will give you an intuitive presentation. Different notebooks are made for different purpose:
 - `EntireBookForColab.ipynb` contains complete part of projects such as process, train, test. Furthermore, it can be run on Google Colab
 - `PreprocessIllustartion.ipynb` shows some preprocess methods for retinal images.
 - `TestAndEvaluation.ipynb` is the part for evaluating and testing the model.
